@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "opportunities": "Oportunidades",
+    "scholarships": "Becas",
+    "countries": "Países",
+    "about": "Acerca de AVA",
+    "team": "Nuestro Equipo",
+    "contact": "Contacto",
+    "explore": "Explorar Oportunidades",
+    "find_scholarship": "Buscar Beca"
+  },
+  "hero": {
+    "badge": "Portal Panafricano e Internacional",
+    "title": "Las oportunidades del mundo al alcance de tu mano.",
+    "subtitle": "Becas de estudio, pasantías, fellowships, subvenciones y conferencias internacionales en una plataforma verificada.",
+    "search_placeholder": "¿Qué estás buscando? (ej: Beca Master Canadá, IA, Fellowship...)",
+    "search_btn": "Buscar",
+    "btn_explore": "Explorar todas las oportunidades",
+    "btn_scholarships": "Becas Totalmente Financiadas"
+  },
+  "categories": {
+    "title": "Explorar por Categoría",
+    "subtitle": "Descubre programas adaptados a tu perfil académico y profesional.",
+    "scholarships": "Becas de Estudio",
+    "fellowships": "Fellowships e Investigación",
+    "grants": "Subvenciones y Financiación",
+    "internships": "Pasantías y Empleo",
+    "conferences": "Foros y Conferencias",
+    "trainings": "Formaciones y Certificaciones"
+  },
+  "featured": {
+    "title": "Oportunidades Destacadas",
+    "subtitle": "Selección de programas internacionales actualmente abiertos.",
+    "fully_funded": "Totalmente Financiado",
+    "partially_funded": "Parcialmente Financiado",
+    "days_left": "días restantes",
+    "view_details": "Ver Detalles",
+    "apply_official": "Fuente Oficial"
+  },
+  "ava_about": {
+    "badge": "Iniciativa Digital Oficial",
+    "title": "African Visionaries Alliance (AVA)",
+    "subtitle": "Alianza de Visionarios Africanos para Respuestas a Emergencias Sociales en África",
+    "desc": "AVA es una organización africana independiente, no política y sin fines de lucro liderada por jóvenes para potenciar el talento de nuestro continente.",
+    "mission_title": "Nuestra Misión",
+    "mission_desc": "Democratizar el acceso a oportunidades globales de educación e investigación para la juventud africana.",
+    "btn_learn_more": "Conocer la Organización"
+  },
+  "footer": {
+    "tagline": "Alianza de Visionarios Africanos - Las oportunidades del mundo al alcance de tu mano.",
+    "initiative": "Una iniciativa digital panafricana para la juventud y el talento africano.",
+    "quick_links": "Enlaces Rápidos",
+    "categories": "Categorías",
+    "legal": "Aviso Legal y Privacidad",
+    "all_rights": "Todos los derechos reservados."
+  }
+}

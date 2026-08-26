@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "opportunities": "Opportunités",
+    "scholarships": "Bourses",
+    "countries": "Pays",
+    "about": "À propos d'AVA",
+    "team": "Notre Équipe",
+    "contact": "Contact",
+    "explore": "Explorer les opportunités",
+    "find_scholarship": "Trouver une bourse"
+  },
+  "hero": {
+    "badge": "Portail Panafricain & International",
+    "title": "Les opportunités du monde à portée de main.",
+    "subtitle": "Bourses d'études, stages, formations, fellowships, grants et conférences internationales réunis sur une plateforme vérifiée.",
+    "search_placeholder": "Que recherchez-vous ? (ex: Bourse Master Canada, IA, Fellowship...)",
+    "search_btn": "Rechercher",
+    "btn_explore": "Explorer toutes les opportunités",
+    "btn_scholarships": "Bourses entièrement financées"
+  },
+  "categories": {
+    "title": "Explorer par catégorie",
+    "subtitle": "Découvrez les programmes adaptés à votre niveau et à vos ambitions académiques et professionnelles.",
+    "scholarships": "Bourses d'études",
+    "fellowships": "Fellowships & Recherche",
+    "grants": "Grants & Financements",
+    "internships": "Stages & Emplois",
+    "conferences": "Forums & Conférences",
+    "trainings": "Formations & Certifications"
+  },
+  "featured": {
+    "title": "Opportunités en vedette",
+    "subtitle": "Sélection des programmes internationaux actuellement ouverts aux candidatures.",
+    "fully_funded": "Entièrement financé",
+    "partially_funded": "Partiellement financé",
+    "days_left": "jours restants",
+    "view_details": "Voir les détails",
+    "apply_official": "Source Officielle"
+  },
+  "ava_about": {
+    "badge": "Initiative Numérique Officielle",
+    "title": "African Visionaries Alliance (AVA)",
+    "subtitle": "Alliance des Visionnaires Africains pour les Réponses aux Urgences Sociales en Afrique",
+    "desc": "AVA est une organisation africaine indépendante, non politique et à but non lucratif, dirigée par la jeunesse africaine pour bâtir la résilience et catalyser les talents de notre continent.",
+    "mission_title": "Notre Mission",
+    "mission_desc": "Démocratiser l'accès aux opportunités mondiales d'éducation, de leadership et de recherche pour chaque jeune africain.",
+    "btn_learn_more": "Découvrir l'organisation"
+  },
+  "footer": {
+    "tagline": "Alliance des Visionnaires Africains - Les opportunités du monde à portée de main.",
+    "initiative": "Une initiative numérique panafricaine pour la jeunesse et les talents africains.",
+    "quick_links": "Navigation Rapide",
+    "categories": "Catégories",
+    "legal": "Mentions Légales & Confidentialité",
+    "all_rights": "Tous droits réservés."
+  }
+}

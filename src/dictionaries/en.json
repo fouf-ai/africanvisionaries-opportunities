@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "home": "Home",
+    "opportunities": "Opportunities",
+    "scholarships": "Scholarships",
+    "countries": "Countries",
+    "about": "About AVA",
+    "team": "Our Team",
+    "contact": "Contact",
+    "explore": "Explore Opportunities",
+    "find_scholarship": "Find a Scholarship"
+  },
+  "hero": {
+    "badge": "Pan-African & International Portal",
+    "title": "World opportunities at your fingertips.",
+    "subtitle": "Scholarships, internships, fellowships, grants, and international conferences gathered on a verified platform.",
+    "search_placeholder": "What are you looking for? (e.g. Master Scholarship Canada, AI, Fellowship...)",
+    "search_btn": "Search",
+    "btn_explore": "Explore all opportunities",
+    "btn_scholarships": "Fully Funded Scholarships"
+  },
+  "categories": {
+    "title": "Explore by Category",
+    "subtitle": "Discover programs suited to your academic and professional profile.",
+    "scholarships": "Scholarships",
+    "fellowships": "Fellowships & Research",
+    "grants": "Grants & Funding",
+    "internships": "Internships & Jobs",
+    "conferences": "Forums & Conferences",
+    "trainings": "Trainings & Certifications"
+  },
+  "featured": {
+    "title": "Featured Opportunities",
+    "subtitle": "Curated selection of international opportunities open for applications.",
+    "fully_funded": "Fully Funded",
+    "partially_funded": "Partially Funded",
+    "days_left": "days left",
+    "view_details": "View Details",
+    "apply_official": "Official Source"
+  },
+  "ava_about": {
+    "badge": "Official Digital Initiative",
+    "title": "African Visionaries Alliance (AVA)",
+    "subtitle": "Alliance of African Visionaries for Responses to Social Emergencies in Africa",
+    "desc": "AVA is an independent, non-political, non-profit organization led by African youth to build resilience and empower the talents of our continent.",
+    "mission_title": "Our Mission",
+    "mission_desc": "Democratizing access to global education, leadership, and research opportunities for every African youth.",
+    "btn_learn_more": "Discover the Organization"
+  },
+  "footer": {
+    "tagline": "African Visionaries Alliance - World opportunities at your fingertips.",
+    "initiative": "A pan-African digital initiative for African youth and talents.",
+    "quick_links": "Quick Links",
+    "categories": "Categories",
+    "legal": "Legal Notice & Privacy",
+    "all_rights": "All rights reserved."
+  }
+}
