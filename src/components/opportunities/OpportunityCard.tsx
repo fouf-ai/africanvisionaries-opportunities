@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MapPin, GraduationCap, Calendar, ArrowRight, ShieldCheck } from "lucide-react";
 import type { Locale } from "@/config/i18n";
 import type { Dictionary } from "@/lib/get-dictionary";
+import SaveButton from "@/components/opportunities/SaveButton";
 
 export interface OpportunityItem {
   id: string;
@@ -72,6 +73,7 @@ export default function OpportunityCard({
           <span>{dict.featured.view_details}</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </Link>
+        <SaveButton opportunityId={item.id} />
       </div>
     </div>
   );
