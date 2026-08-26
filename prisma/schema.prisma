@@ -1,0 +1,186 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  OPPORTUNITY_MANAGER
+  COUNTRY_MANAGER
+  COMMUNICATION_MANAGER
+  EDITOR
+  STAFF
+  CONTRIBUTOR
+  USER
+}
+
+enum FundingType {
+  FULLY_FUNDED
+  PARTIALLY_FUNDED
+  FREE
+  PAID
+  UNPAID
+}
+
+enum TargetLevel {
+  HIGH_SCHOOL
+  BACHELOR
+  MASTER
+  PHD
+  POSTDOC
+  PROFESSIONAL
+  ENTREPRENEUR
+  RESEARCHER
+  YOUTH
+}
+
+enum OpportunityStatus {
+  DRAFT
+  PENDING_REVIEW
+  APPROVED
+  PUBLISHED
+  EXPIRED
+  ARCHIVED
+}
+
+enum Region {
+  AFRICA
+  EUROPE
+  AMERICA
+  ASIA
+  MIDDLE_EAST
+  OCEANIA
+  GLOBAL
+}
+
+enum TeamGroup {
+  EXECUTIVE_COUNCIL
+  SECRETARIAT
+  STAFF
+  REGIONAL_REP
+}
+
+model User {
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  passwordHash  String
+  role          Role     @default(USER)
+  countryCode   String?
+  preferredLang String   @default("fr")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  createdOpportunities Opportunity[]      @relation("OpportunityAuthor")
+  savedOpportunities   SavedOpportunity[]
+
+  @@map("users")
+}
+
+model Country {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  name        String
+  region      Region
+  flagEmoji   String
+  description String?  @db.Text
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  opportunities Opportunity[]
+
+  @@map("countries")
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  nameFr    String
+  nameEn    String
+  nameAr    String
+  nameEs    String
+  namePt    String
+  icon      String   @default("GraduationCap")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  opportunities Opportunity[]
+
+  @@map("categories")
+}
+
+model Opportunity {
+  id              String            @id @default(uuid())
+  slug            String            @unique
+  title           String
+  organization    String
+  countryId       String
+  categoryId      String
+  funding         FundingType       @default(FULLY_FUNDED)
+  targetLevel     TargetLevel       @default(MASTER)
+  fieldOfStudy    String
+  amount          String?
+  deadline        DateTime
+  officialLink    String            @db.VarChar(2048)
+  summary         String            @db.Text
+  description     String            @db.LongText
+  eligibilityJson String            @db.LongText
+  documentsJson   String            @db.LongText
+  benefitsJson    String            @db.LongText
+  procedureJson   String            @db.LongText
+  status          OpportunityStatus @default(PUBLISHED)
+  createdById     String?
+  publishedAt     DateTime?         @default(now())
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  country  Country           @relation(fields: [countryId], references: [id], onDelete: Restrict)
+  category Category          @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  author   User?             @relation("OpportunityAuthor", fields: [createdById], references: [id], onDelete: SetNull)
+  savedBy  SavedOpportunity[]
+
+  @@index([countryId])
+  @@index([categoryId])
+  @@index([status])
+  @@map("opportunities")
+}
+
+model SavedOpportunity {
+  id            String   @id @default(uuid())
+  userId        String
+  opportunityId String
+  createdAt     DateTime @default(now())
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, opportunityId])
+  @@map("saved_opportunities")
+}
+
+model TeamMember {
+  id          String    @id @default(uuid())
+  group       TeamGroup
+  positionFr  String
+  positionEn  String
+  positionAr  String
+  name        String    @default("Poste à pourvoir / TBD")
+  bioFr       String?   @db.Text
+  bioEn       String?   @db.Text
+  bioAr       String?   @db.Text
+  email       String?
+  linkedinUrl String?
+  photoUrl    String?
+  orderIndex  Int       @default(0)
+  isPublished Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("team_members")
+}

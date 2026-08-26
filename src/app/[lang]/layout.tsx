@@ -4,6 +4,7 @@ import { getDictionary } from "@/lib/get-dictionary";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import DocumentLocale from "@/components/layout/DocumentLocale";
+import AuthProvider from "@/components/providers/AuthProvider";
 
 export const metadata: Metadata = {
   title: "AVA Opportunities | African Visionaries Alliance",
@@ -29,11 +30,13 @@ export default async function RootLocaleLayout({
   return (
     <>
       <DocumentLocale lang={currentLang} />
-      <div className="flex flex-col min-h-screen bg-slate-50 text-slate-900 antialiased" dir={isRtl ? "rtl" : "ltr"}>
-        <Header lang={currentLang} dict={dict} />
-        <div className="flex-1">{children}</div>
-        <Footer lang={currentLang} dict={dict} />
-      </div>
+      <AuthProvider>
+        <div className="flex flex-col min-h-screen bg-slate-50 text-slate-900 antialiased" dir={isRtl ? "rtl" : "ltr"}>
+          <Header lang={currentLang} dict={dict} />
+          <div className="flex-1">{children}</div>
+          <Footer lang={currentLang} dict={dict} />
+        </div>
+      </AuthProvider>
     </>
   );
 }
