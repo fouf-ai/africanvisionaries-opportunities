@@ -1,6 +1,6 @@
 import { officialTeamStructure } from "@/lib/team-data";
 import { Users, ShieldCheck, HeartHandshake, Globe2, UserCheck } from "lucide-react";
-import ImageWithFallback from "@/components/ui/ImageWithFallback";
+import SafeImage from "@/components/common/SafeImage";
 
 export default async function TeamPage({
   params,
@@ -43,5 +43,5 @@ function TeamSection({
   tone: "teal" | "blue" | "amber" | "purple";
 }) {
   const badgeClass = { teal: "text-teal-700 bg-teal-50", blue: "text-blue-900 bg-blue-50", amber: "text-amber-800 bg-amber-50", purple: "text-purple-900 bg-purple-50" }[tone];
-  return <section className="space-y-6"><div className="flex items-center gap-2 border-b border-slate-200 pb-3"><Icon className="w-5 h-5 text-teal-600" /><h2 className="text-xl font-extrabold text-slate-900">{title}</h2></div><div className={`grid grid-cols-1 ${gridClass} gap-6`}>{members.map((member) => <div key={member.id} className="bg-white rounded-2xl border border-slate-200/80 p-6 space-y-3 shadow-xs"><div className="flex items-center gap-4"><div className="relative w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 overflow-hidden shrink-0"><UserCheck className="w-7 h-7" />{member.photoUrl && <ImageWithFallback src={member.photoUrl} alt={member.name} className="object-cover" />}</div><div><span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider block w-fit mb-1 ${badgeClass}`}>{member.roleTitleFr}</span><h3 className="font-bold text-slate-900 text-sm">{member.name}</h3></div></div><p className="text-xs text-slate-500 leading-relaxed">{member.bioFr}</p></div>)}</div></section>;
+  return <section className="space-y-6"><div className="flex items-center gap-2 border-b border-slate-200 pb-3"><Icon className="w-5 h-5 text-teal-600" /><h2 className="text-xl font-extrabold text-slate-900">{title}</h2></div><div className={`grid grid-cols-1 ${gridClass} gap-6`}>{members.map((member) => <div key={member.id} className="bg-white rounded-2xl border border-slate-200/80 p-6 space-y-3 shadow-xs"><div className="flex items-center gap-4"><div className="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center overflow-hidden shrink-0 shadow-inner"><SafeImage src={member.photoUrl || ""} alt={member.name} className="w-full h-full object-cover" fallbackIcon={<UserCheck className="w-7 h-7 text-slate-400" />} /></div><div><span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider block w-fit mb-1 ${badgeClass}`}>{member.roleTitleFr}</span><h3 className="font-bold text-slate-900 text-sm">{member.name}</h3></div></div><p className="text-xs text-slate-500 leading-relaxed">{member.bioFr}</p></div>)}</div></section>;
 }
