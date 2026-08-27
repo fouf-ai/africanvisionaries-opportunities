@@ -51,7 +51,7 @@ export async function generateMetadata({
       images: [`${baseUrl}/images/logo.png`],
     },
     verification: {
-      google: "COLLEZ_ICI_VOTRE_CODE_GOOGLE_SEARCH_CONSOLE",
+      google: "soPi60ttuwYnPT66SCUThp6WKS5RGsN8JSuLZ26bvhM",
     },
   };
 }
