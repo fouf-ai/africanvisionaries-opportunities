@@ -50,6 +50,11 @@ export async function generateMetadata({
       description: "Bourses d'études et opportunités internationales vérifiées pour l'Afrique.",
       images: [`${baseUrl}/images/logo.png`],
     },
+    icons: {
+      icon: "/images/logo.png",
+      shortcut: "/images/logo.png",
+      apple: "/images/logo.png",
+    },
     verification: {
       google: "soPi60ttuwYnPT66SCUThp6WKS5RGsN8JSuLZ26bvhM",
     },
