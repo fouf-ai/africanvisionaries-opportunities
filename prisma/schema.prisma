@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -129,11 +129,11 @@ model Opportunity {
   deadline        DateTime
   officialLink    String            @db.VarChar(2048)
   summary         String            @db.Text
-  description     String            @db.LongText
-  eligibilityJson String            @db.LongText
-  documentsJson   String            @db.LongText
-  benefitsJson    String            @db.LongText
-  procedureJson   String            @db.LongText
+  description     String            @db.Text
+  eligibilityJson String            @db.Text
+  documentsJson   String            @db.Text
+  benefitsJson    String            @db.Text
+  procedureJson   String            @db.Text
   status          OpportunityStatus @default(PUBLISHED)
   createdById     String?
   publishedAt     DateTime?         @default(now())
