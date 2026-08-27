@@ -6,10 +6,55 @@ import Footer from "@/components/layout/Footer";
 import DocumentLocale from "@/components/layout/DocumentLocale";
 import AuthProvider from "@/components/providers/AuthProvider";
 
-export const metadata: Metadata = {
-  title: "AVA Opportunities | African Visionaries Alliance",
-  description: "Bourses, stages, formations, fellowships, grants et opportunités internationales réunis sur une seule plateforme.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const baseUrl = "https://africanvisionaries.org";
+
+  return {
+    metadataBase: new URL(baseUrl),
+    title: {
+      default: "AVA Opportunities | Bourses, Fellowships & Urgences Sociales en Afrique",
+      template: "%s | African Visionaries Alliance",
+    },
+    description: "Plateforme panafricaine officielle centralisant les bourses d'études mondiales vérifiées, formations et opportunités pour la jeunesse africaine.",
+    keywords: ["Bourses d'études Afrique", "African Visionaries Alliance", "AVA Opportunities", "Bourses Master Doctorat", "Jeunesse africaine", "Opportunités internationales"],
+    authors: [{ name: "African Visionaries Alliance", url: baseUrl }],
+    creator: "African Visionaries Alliance",
+    publisher: "African Visionaries Alliance",
+    alternates: {
+      canonical: `${baseUrl}/${lang}`,
+      languages: {
+        fr: `${baseUrl}/fr`,
+        en: `${baseUrl}/en`,
+        ar: `${baseUrl}/ar`,
+        es: `${baseUrl}/es`,
+        pt: `${baseUrl}/pt`,
+      },
+    },
+    openGraph: {
+      type: "website",
+      locale: lang,
+      url: `${baseUrl}/${lang}`,
+      title: "AVA Opportunities | Bourses & Opportunités Internationales",
+      description: "Portail officiel d'accès aux bourses d'excellence, financements et urgences sociales pour la jeunesse africaine.",
+      siteName: "African Visionaries Alliance",
+      images: [{ url: `${baseUrl}/images/logo.png`, width: 800, height: 800, alt: "African Visionaries Alliance Logo" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "AVA Opportunities | African Visionaries Alliance",
+      description: "Bourses d'études et opportunités internationales vérifiées pour l'Afrique.",
+      images: [`${baseUrl}/images/logo.png`],
+    },
+    verification: {
+      google: "COLLEZ_ICI_VOTRE_CODE_GOOGLE_SEARCH_CONSOLE",
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));

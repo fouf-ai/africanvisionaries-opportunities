@@ -7,22 +7,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://africanvisionaries.org";
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
+  const staticRoutes = ["", "/opportunities", "/countries", "/about", "/team", "/contact"];
+
   for (const locale of i18n.locales) {
-    sitemapEntries.push(
-      { url: `${baseUrl}/${locale}`, lastModified: new Date(), changeFrequency: "daily", priority: 1.0 },
-      { url: `${baseUrl}/${locale}/opportunities`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
-      { url: `${baseUrl}/${locale}/countries`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-      { url: `${baseUrl}/${locale}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-      { url: `${baseUrl}/${locale}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-      { url: `${baseUrl}/${locale}/team`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    );
+    for (const route of staticRoutes) {
+      sitemapEntries.push({
+        url: `${baseUrl}/${locale}${route}`,
+        lastModified: new Date(),
+        changeFrequency: route === "" || route === "/opportunities" ? "daily" : "weekly",
+        priority: route === "" ? 1.0 : 0.8,
+      });
+    }
 
     for (const opportunity of opportunitiesList) {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}/opportunities/${opportunity.slug}`,
         lastModified: new Date(),
         changeFrequency: "weekly",
-        priority: 0.8,
+        priority: 0.9,
       });
     }
 
