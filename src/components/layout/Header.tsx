@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/config/i18n";
 import type { Dictionary } from "@/lib/get-dictionary";
 import LanguageSwitcher from "./LanguageSwitcher";
-import ImageWithFallback from "@/components/ui/ImageWithFallback";
+import SafeImage from "@/components/common/SafeImage";
 import { Compass, GraduationCap, Globe2 } from "lucide-react";
 
 export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
@@ -12,8 +12,12 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         <Link href={`/${lang}`} className="flex items-center gap-3 group">
           <div className="relative w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center bg-slate-900 border border-slate-800 shadow-sm group-hover:scale-105 transition-transform shrink-0">
-            <ImageWithFallback src="/images/logo.png" alt="Logo AVA" className="object-contain p-0.5" />
-            <span className="text-white font-black text-xs">AVA</span>
+            <SafeImage
+              src="/images/logo.png"
+              alt="AVA Logo"
+              className="w-full h-full object-contain p-0.5"
+              fallbackIcon={<span className="text-white font-black text-xs">AVA</span>}
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold text-lg text-slate-900 leading-tight">AVA Opportunities</span>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { i18n, type Locale } from "@/config/i18n";
 import { getDictionary, type Dictionary } from "@/lib/get-dictionary";
 import OpportunityCard, { type OpportunityItem } from "@/components/opportunities/OpportunityCard";
+import NewsletterBox from "@/components/opportunities/NewsletterBox";
 import {
   Sparkles,
   Search,
@@ -145,6 +146,10 @@ export default async function HomePage({
             );
           })}
         </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <NewsletterBox />
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

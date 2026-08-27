@@ -3,6 +3,7 @@ import { getDictionary } from "@/lib/get-dictionary";
 import { opportunitiesList, calculateDaysLeft } from "@/lib/opportunities-data";
 import OpportunityCard from "@/components/opportunities/OpportunityCard";
 import FiltersSidebar from "@/components/opportunities/FiltersSidebar";
+import NewsletterBox from "@/components/opportunities/NewsletterBox";
 import { Search, Sparkles } from "lucide-react";
 
 export default async function OpportunitiesPage({
@@ -95,6 +96,8 @@ export default async function OpportunitiesPage({
           )}
         </div>
       </div>
+
+      <NewsletterBox />
     </div>
   );
 }
