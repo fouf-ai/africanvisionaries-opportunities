@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portail des Bourses & Opportunités Mondiales</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 24px;
+      color: #2d3748;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h1 {
+      margin-bottom: 8px;
+    }
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    input, select {
+      padding: 10px 14px;
+      border: 1px solid #cbd5e0;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tags {
+      margin-bottom: 10px;
+    }
+    .tag {
+      display: inline-block;
+      background: #edf2f7;
+      color: #4a5568;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    .card h3 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      line-height: 1.4;
+      color: #1a202c;
+    }
+    .card p {
+      margin: 5px 0;
+      font-size: 13px;
+      color: #4a5568;
+    }
+    .btn {
+      display: block;
+      text-align: center;
+      background: #2b6cb0;
+      color: white;
+      text-decoration: none;
+      padding: 9px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .btn:hover {
+      background: #2c5282;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Veille Mondiale des Bourses & Opportunités</h1>
+    <p>Programmes ouverts sans restriction de nationalité</p>
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Rechercher (ex: Master, Climat, DAAD...)" />
+      <select id="countryFilter">
+        <option value="all">Tous les pays</option>
+        <option value="Canada">Canada</option>
+        <option value="France">France</option>
+        <option value="Allemagne">Allemagne</option>
+        <option value="Suisse">Suisse</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <div id="cardsGrid" class="grid"></div>
+  </main>
+
+  <script>
+    const scholarships = [
+      // CANADA
+      {
+        title: "Bourse Lester B. Pearson (Université de Toronto)",
+        country: "Canada",
+        level: "Licence / Bachelor",
+        coverage: "Scolarité complète + logement + livres (4 ans)",
+        deadline: "Octobre - Novembre",
+        link: "https://future.utoronto.ca/pearson-scholarships"
+      },
+      {
+        title: "Bourses McCall MacBain (Université McGill)",
+        country: "Canada",
+        level: "Master / Diplôme Pro",
+        coverage: "Frais de scolarité complets + 2 000 $ CA/mois",
+        deadline: "Août - Septembre",
+        link: "https://mccallmacbainscholars.org"
+      },
+      {
+        title: "Bourses d'Études Supérieures Vanier",
+        country: "Canada",
+        level: "Doctorat",
+        coverage: "50 000 $ CA / an (sur 3 ans)",
+        deadline: "Octobre - Novembre",
+        link: "https://vanier.gc.ca"
+      },
+      {
+        title: "Stage de Recherche Globalink Mitacs",
+        country: "Canada",
+        level: "Licence / Stage 12 sem.",
+        coverage: "100% financé (Vols AR + logement + allocation)",
+        deadline: "Août - Septembre",
+        link: "https://www.mitacs.ca"
+      },
+
+      // FRANCE
+      {
+        title: "Bourse France Excellence Eiffel",
+        country: "France",
+        level: "Master / Doctorat",
+        coverage: "1 200 € à 2 100 €/mois + vol AR + sécurité sociale",
+        deadline: "Novembre - Janvier",
+        link: "https://www.campusfrance.org"
+      },
+      {
+        title: "Bourse Émile Boutmy (Sciences Po Paris)",
+        country: "France",
+        level: "Licence / Master",
+        coverage: "Exonération de scolarité jusqu'à 14 210 €/an",
+        deadline: "Décembre - Février",
+        link: "https://www.sciencespo.fr"
+      },
+      {
+        title: "Bourses Internationales de Master IDEX (Paris-Saclay)",
+        country: "France",
+        level: "Master",
+        coverage: "10 000 €/an + indemnité forfaitaire de voyage",
+        deadline: "Février - Mai",
+        link: "https://www.universite-paris-saclay.fr"
+      },
+      {
+        title: "L'Oréal Brandstorm Challenge",
+        country: "France",
+        level: "Concours Étudiant",
+        coverage: "Finale à Paris tous frais payés + mission à Station F",
+        deadline: "Mars - Avril",
+        link: "https://brandstorm.loreal.com"
+      },
+
+      // ALLEMAGNE
+      {
+        title: "Bourses de Recherche Doctorale DAAD",
+        country: "Allemagne",
+        level: "Doctorat",
+        coverage: "1 400 €/mois + assurance + billets AR",
+        deadline: "Octobre - Novembre",
+        link: "https://www.daad.de"
+      },
+      {
+        title: "Deutschlandstipendium (Bourse Nationale au Mérite)",
+        country: "Allemagne",
+        level: "Licence / Master",
+        coverage: "300 € par mois (sans condition de nationalité)",
+        deadline: "Varie selon l'université",
+        link: "https://www.deutschlandstipendium.de"
+      },
+      {
+        title: "Humboldt Research Fellowship (Postdoc)",
+        country: "Allemagne",
+        level: "Post-doctorat",
+        coverage: "2 670 € à 3 170 €/mois (durée jusqu'à 24 mois)",
+        deadline: "Candidature ouverte en continu",
+        link: "https://www.humboldt-foundation.de"
+      },
+      {
+        title: "Falling Walls Lab & Science Summit (Berlin)",
+        country: "Allemagne",
+        level: "Sommet & Pitch",
+        coverage: "Voyage AR et séjour à Berlin pris en charge",
+        deadline: "Mai - Août",
+        link: "https://falling-walls.com"
+      },
+
+      // SUISSE
+      {
+        title: "Bourses d'Excellence de la Confédération Suisse (ESKAS)",
+        country: "Suisse",
+        level: "Doctorat / Post-doc",
+        coverage: "CHF 2 450/mois + assurance + aide au logement",
+        deadline: "Septembre - Décembre",
+        link: "https://www.sbfi.admin.ch"
+      },
+      {
+        title: "ETH Zurich Excellence Scholarship (ESOP)",
+        country: "Suisse",
+        level: "Master",
+        coverage: "Exemption de taxes + CHF 12 000/semestre",
+        deadline: "Novembre - Décembre",
+        link: "https://ethz.ch"
+      },
+      {
+        title: "CERN Summer Student Programme (Genève)",
+        country: "Suisse",
+        level: "Stage d'Été",
+        coverage: "CHF 90/jour + voyage AR + couverture santé",
+        deadline: "Janvier - Mars",
+        link: "https://careers.cern"
+      },
+      {
+        title: "St. Gallen Symposium Global Essay Competition",
+        country: "Suisse",
+        level: "Concours d'Essai",
+        coverage: "Invitation tous frais payés en Suisse + CHF 20 000 de prix",
+        deadline: "Février",
+        link: "https://www.symposium.org"
+      }
+    ];
+
+    const grid = document.getElementById('cardsGrid');
+    const searchInput = document.getElementById('searchInput');
+    const countryFilter = document.getElementById('countryFilter');
+
+    function renderCards(data) {
+      if (data.length === 0) {
+        grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">Aucune opportunité ne correspond à votre recherche.</p>';
+        return;
+      }
+
+      grid.innerHTML = data.map(item => `
+        <article class="card">
+          <div>
+            <div class="tags">
+              <span class="tag">${item.country}</span>
+              <span class="tag">${item.level}</span>
+            </div>
+            <h3>${item.title}</h3>
+            <p><strong>Financement :</strong> ${item.coverage}</p>
+            <p><strong>Période :</strong> ${item.deadline}</p>
+          </div>
+          <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="btn">En savoir plus</a>
+        </article>
+      `).join('');
+    }
+
+    function handleFilter() {
+      const query = searchInput.value.toLowerCase();
+      const selectedCountry = countryFilter.value;
+
+      const filtered = scholarships.filter(item => {
+        const matchesSearch = item.title.toLowerCase().includes(query) || 
+                              item.level.toLowerCase().includes(query) ||
+                              item.coverage.toLowerCase().includes(query);
+        const matchesCountry = selectedCountry === 'all' || item.country === selectedCountry;
+        return matchesSearch && matchesCountry;
+      });
+
+      renderCards(filtered);
+    }
+
+    searchInput.addEventListener('input', handleFilter);
+    countryFilter.addEventListener('change', handleFilter);
+
+    // Chargement au démarrage
+    renderCards(scholarships);
+  </script>
+</body>
+</html>
