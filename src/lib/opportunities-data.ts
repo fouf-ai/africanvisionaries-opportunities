@@ -1,150 +1,163 @@
-export interface OpportunityDetail {
+export interface OpportunityItem {
   id: string;
   slug: string;
-  title: string;
-  organization: string;
+  titleFr: string;
+  titleEn: string;
+  titleAr: string;
+  category: "SCHOLARSHIP" | "FELLOWSHIP" | "GRANT" | "EMERGENCY_FUND";
+  degreeLevel: "UNDERGRADUATE" | "MASTER" | "PHD" | "POSTDOC" | "ALL";
   country: string;
-  region: "AFRICA" | "EUROPE" | "AMERICA" | "ASIA" | "MIDDLE_EAST" | "OCEANIA" | "GLOBAL";
-  category: "scholarships" | "fellowships" | "grants" | "internships" | "conferences" | "trainings";
-  funding: "FULLY_FUNDED" | "PARTIALLY_FUNDED" | "FREE" | "PAID";
-  targetLevel: "HIGH_SCHOOL" | "BACHELOR" | "MASTER" | "PHD" | "POSTDOC" | "PROFESSIONAL" | "ENTREPRENEUR" | "RESEARCHER" | "YOUTH";
-  fieldOfStudy: string;
+  hostInstitution: string;
   deadline: string;
-  officialLink: string;
-  summary: string;
-  description: string;
-  eligibility: string[];
-  documents: string[];
-  benefits: string[];
-  procedure: string[];
+  coverageFr: string;
+  coverageEn: string;
+  coverageAr: string;
+  descriptionFr: string;
+  descriptionEn: string;
+  descriptionAr: string;
+  officialUrl: string;
+  isFeatured?: boolean;
 }
 
-export const opportunitiesList: OpportunityDetail[] = [
+export const opportunitiesList: OpportunityItem[] = [
   {
-    id: "fcs-swiss-excellence-2026",
-    slug: "bourse-excellence-gouvernement-suisse",
-    title: "Bourses d'Excellence de la Confédération Suisse",
-    organization: "Commission fédérale des bourses pour étudiants étrangers (CFBE)",
-    country: "Suisse",
-    region: "EUROPE",
-    category: "scholarships",
-    funding: "FULLY_FUNDED",
-    targetLevel: "PHD",
-    fieldOfStudy: "Tous domaines de recherche académique",
+    id: "turkiye-burslari-licence-2026",
+    slug: "bourses-gouvernement-turc-licence-2026",
+    titleFr: "Bourses du Gouvernement Turc (Türkiye Bursları) - Premier Cycle",
+    titleEn: "Türkiye Scholarships Undergraduate Program 2026-2027",
+    titleAr: "منح الحكومة التركية لمرحلة البكالوريوس 2026-2027",
+    category: "SCHOLARSHIP",
+    degreeLevel: "UNDERGRADUATE",
+    country: "Turquie",
+    hostInstitution: "Universités publiques et privées de Turquie",
+    deadline: "2026-11-30",
+    coverageFr: "Exonération totale des frais de scolarité, billet d'avion A/R, allocation mensuelle, logement universitaire et assurance santé.",
+    coverageEn: "Full tuition waiver, round-trip flight ticket, monthly stipend, university accommodation, and comprehensive health insurance.",
+    coverageAr: "إعفاء كامل من الرسوم الدراسية، تذكرة طيران ذهاباً وإياباً، راتب شهري، سكن جامعي وتأمين صحي.",
+    descriptionFr: "Programme d'excellence financé par le gouvernement turc ouvert aux bacheliers internationaux pour l'obtention d'un diplôme de Licence.",
+    descriptionEn: "Government-funded scholarship program open to international high school graduates for full-time Bachelor degrees.",
+    descriptionAr: "برنامج المنح الحكومية التركية الممول بالكامل للطلاب الدوليين لمتابعة دراسة البكالوريوس في مختلف التخصصات.",
+    officialUrl: "https://www.turkiyeburslari.gov.tr/",
+    isFeatured: true,
+  },
+  {
+    id: "mext-japan-undergraduate-2026",
+    slug: "bourse-gouvernement-japonais-mext-licence-2026",
+    titleFr: "Bourse MEXT du Gouvernement Japonais - Programme Licence",
+    titleEn: "Japanese Government MEXT Undergraduate Scholarship 2026-2027",
+    titleAr: "منحة الحكومة اليابانية (MEXT) لدراسة البكالوريوس 2026-2027",
+    category: "SCHOLARSHIP",
+    degreeLevel: "UNDERGRADUATE",
+    country: "Japon",
+    hostInstitution: "Universités japonaises nationales et partenaires",
+    deadline: "2026-10-15",
+    coverageFr: "Prise en charge à 100 % des frais universitaires, billets d'avion internationaux aller-retour et allocation de vie mensuelle d'environ 120 000 JPY.",
+    coverageEn: "100% tuition coverage, round-trip international airfare, and monthly living allowance of approx. 120,000 JPY.",
+    coverageAr: "تغطية كاملة بنسبة 100٪ للرسوم الجامعية، تذاكر الطيران، وراتب معيشي شهري بقيمة تقارب 120,000 ين ياباني.",
+    descriptionFr: "La bourse d'État japonaise MEXT permet aux étudiants internationaux d'intégrer une université au Japon après une année préparatoire linguistique.",
+    descriptionEn: "The Japanese Government MEXT scholarship allows international applicants to enroll in Japanese universities including preparatory language year.",
+    descriptionAr: "منحة وزارة التعليم اليابانية للطلاب المتميزين للدراسة في الجامعات اليابانية مع سنة تحضيرية للغة.",
+    officialUrl: "https://www.studyinjapan.go.jp/en/planning/scholarship/",
+    isFeatured: true,
+  },
+  {
+    id: "csc-china-undergraduate-2026",
+    slug: "bourse-gouvernement-chinois-csc-licence-2026",
+    titleFr: "Bourse du Gouvernement Chinois (CSC) - Programme Bachelor",
+    titleEn: "Chinese Government Scholarship (CSC) - Type A/B Undergraduate",
+    titleAr: "منحة الحكومة الصينية (CSC) لدرجة البكالوريوس 2026-2027",
+    category: "SCHOLARSHIP",
+    degreeLevel: "UNDERGRADUATE",
+    country: "Chine",
+    hostInstitution: "Consortium des Universités d'Excellence Chinoises",
     deadline: "2026-12-15",
-    officialLink: "https://www.sbfi.admin.ch/sbfi/fr/home/formation/bourses-et-prets/bourses-d-etudes-de-la-confederation.html",
-    summary: "Bourses d'excellence pour chercheurs et doctorants étrangers d'exception dans les universités publiques suisses.",
-    description: "La Confédération suisse offre chaque année des bourses d'excellence dans le domaine de la recherche et des arts afin de promouvoir les échanges internationaux et la coopération scientifique avec plus de 180 pays.",
-    eligibility: [
-      "Diplôme universitaire de niveau Master ou équivalent obtenu avant le début de la bourse",
-      "Projet de recherche valide accepté par un professeur superviseur en Suisse",
-      "Excellence académique attestée et maîtrise de la langue d'enseignement (Anglais, Français ou Allemand)",
-    ],
-    documents: [
-      "Formulaire officiel de candidature de la CFBE",
-      "Curriculum Vitae complet avec liste de publications",
-      "Lettre de motivation détaillée",
-      "Proposition de recherche scientifique (max 5 pages)",
-      "Lettre d'acceptation officielle du professeur d'accueil en Suisse",
-      "Copies certifiées conformes des diplômes et relevés de notes",
-    ],
-    benefits: [
-      "Allocation mensuelle de subsistance",
-      "Exonération des frais d'inscription universitaire",
-      "Assurance maladie et accidents obligatoire prise en charge",
-      "Indemnité de logement et billet d'avion retour",
-    ],
-    procedure: [
-      "Vérifier les critères spécifiques auprès de l'Ambassade de Suisse de votre pays de résidence",
-      "Obtenir l'accord écrit d'un professeur d'une université suisse",
-      "Retirer et compléter le dossier officiel auprès de la représentation diplomatique suisse",
-      "Soumettre le dossier complet avant la date limite fixée par l'ambassade",
-    ],
+    coverageFr: "Frais de scolarité complets, hébergement universitaire gratuit, assurance médicale globale et allocation mensuelle de 2 500 CNY.",
+    coverageEn: "Full tuition, free campus accommodation, comprehensive medical insurance, and 2,500 CNY monthly stipend.",
+    coverageAr: "إعفاء كامل من الرسوم الدراسية، سكن مجاني، تأمين طبي شامل وراتب شهري قدره 2500 يوان صيني.",
+    descriptionFr: "Programme officiel de coopération bilatérale du Conseil des bourses de Chine (CSC) ouvert à toutes les filières scientifiques, économiques et littéraires.",
+    descriptionEn: "Official bilateral cooperation scholarship under the China Scholarship Council for science, engineering, business, and humanities.",
+    descriptionAr: "المنحة الرسمية للتعاون الثنائي الممولة من الحكومة الصينية لمختلف التخصصات العلمية والهندسية والأدبية.",
+    officialUrl: "https://www.campuschina.org/",
+    isFeatured: true,
   },
   {
-    id: "ava-panafrican-fellowship-2026",
-    slug: "programme-leadership-jeunes-africains",
-    title: "Fellowship Panafricain pour Jeunes Leaders",
-    organization: "African Visionaries Alliance (AVA)",
-    country: "Afrique",
-    region: "AFRICA",
-    category: "fellowships",
-    funding: "FULLY_FUNDED",
-    targetLevel: "YOUTH",
-    fieldOfStudy: "Leadership, Résilience Communautaire, Urgences Sociales",
+    id: "hungaricum-stipendium-bachelor-2026",
+    slug: "bourse-stipendium-hungaricum-licence-2026",
+    titleFr: "Bourse Stipendium Hungaricum - Licence en Hongrie",
+    titleEn: "Stipendium Hungaricum Scholarship - Bachelor Programs 2026-2027",
+    titleAr: "منحة الحكومة المجرية (Stipendium Hungaricum) للبكالوريوس 2026-2027",
+    category: "SCHOLARSHIP",
+    degreeLevel: "UNDERGRADUATE",
+    country: "Hongrie",
+    hostInstitution: "Universités publiques hongroises (ELTE, BME, Szeged, Debrecen)",
+    deadline: "2027-01-15",
+    coverageFr: "Études gratuites en anglais, subvention de logement mensuelle, couverture médicale européenne et allocation mensuelle.",
+    coverageEn: "Tuition-free education in English, monthly dormitory contribution, European health insurance, and monthly living allowance.",
+    coverageAr: "دراسة مجانية باللغة الإنجليزية، دعم شهري للسكن، تأمين صحي أوروبي وراتب شهري.",
+    descriptionFr: "Programme gouvernemental hongrois offrant des cursus complets en anglais ou hongrois dans les établissements d'enseignement supérieur d'Europe centrale.",
+    descriptionEn: "Hungarian government initiative offering fully accredited English-taught Bachelor degrees across central European universities.",
+    descriptionAr: "مبادرة حكومية مجرية تتيح دراسة البكالوريوس باللغة الإنجليزية في كبرى جامعات وسط أوروبا.",
+    officialUrl: "https://stipendiumhungaricum.hu/",
+    isFeatured: true,
+  },
+  {
+    id: "korea-gks-undergraduate-2026",
+    slug: "bourse-gks-coree-du-sud-licence-2026",
+    titleFr: "Bourse Globale Corée (GKS) - Premier Cycle Universitaire",
+    titleEn: "Global Korea Scholarship (GKS-U) Undergraduate Track 2026-2027",
+    titleAr: "منحة الحكومة الكورية العالمية (GKS) للبكالوريوس 2026-2027",
+    category: "SCHOLARSHIP",
+    degreeLevel: "UNDERGRADUATE",
+    country: "Corée du Sud",
+    hostInstitution: "Universités partenaires sud-coréennes (NIIED)",
     deadline: "2026-10-30",
-    officialLink: "https://africanvisionaries.org/about",
-    summary: "Programme d'immersion intensive et d'accompagnement de projet pour les bâtisseurs de solutions sociales en Afrique.",
-    description: "Une initiative d'AVA visant à outiller et financer les jeunes leaders africains qui déploient des initiatives d'urgence sociale, de santé communautaire, d'éducation et de résilience numérique.",
-    eligibility: [
-      "Être ressortissant d'un pays africain et âgé de 18 à 35 ans",
-      "Porter un projet ou une initiative active ayant un impact direct sur une communauté locale",
-      "Démontrer un engagement civique fort et une capacité de mobilisation de la jeunesse",
-    ],
-    documents: [
-      "Formulaire d'inscription en ligne",
-      "CV à jour mettant en avant les réalisations communautaires",
-      "Note de cadrage du projet ou de l'initiative (max 3 pages)",
-      "Deux lettres de recommandation d'autorités ou d'organisations partenaires",
-    ],
-    benefits: [
-      "Prise en charge intégrale des frais de voyage et de séjour pour les sessions d'immersion",
-      "Accompagnement personnalisé par des mentors et experts internationaux",
-      "Accès aux subventions d'amorçage pour le déploiement sur le terrain",
-      "Intégration au réseau d'alumni des visionnaires africains",
-    ],
-    procedure: [
-      "Soumettre sa candidature sur le portail numérique officiel AVA",
-      "Présélection sur dossier par le comité des programmes",
-      "Entretien virtuel avec le jury d'évaluation",
-      "Annonce des lauréats et démarrage du cycle de formation",
-    ],
+    coverageFr: "Frais de scolarité intégraux, billets d'avion internationaux, cours préparatoires de coréen d'un an et allocation mensuelle de 900 000 KRW.",
+    coverageEn: "Full tuition, round-trip flights, 1-year Korean language training, medical insurance, and 900,000 KRW monthly stipend.",
+    coverageAr: "تغطية كاملة للمصاريف، تذاكر الطيران، تدريب لمدة سنة على اللغة الكورية وراتب شهري 900,000 وون.",
+    descriptionFr: "Programme officiel géré par le NIIED visant à promouvoir les échanges internationaux par l'accueil de bacheliers méritants en Corée du Sud.",
+    descriptionEn: "Flagship scholarship program by NIIED designed to provide international youth with full higher education in South Korea.",
+    descriptionAr: "برنامج رائد تحت إشراف المعهد الوطني الكوري للتعليم الدولي لمتابعة دراسة البكالوريوس في كوريا الجنوبية.",
+    officialUrl: "https://www.studyinkorea.go.kr/",
+    isFeatured: false,
   },
   {
-    id: "canada-ai-cyber-scholarship-2026",
-    slug: "bourse-master-informatique-ia-canada",
-    title: "Bourse d'Excellence en Informatique & Cybersécurité",
-    organization: "Institut Panafricain des Sciences Numériques",
-    country: "Canada",
-    region: "AMERICA",
-    category: "scholarships",
-    funding: "FULLY_FUNDED",
-    targetLevel: "MASTER",
-    fieldOfStudy: "Informatique, Intelligence Artificielle, Sécurité des Réseaux",
-    deadline: "2026-11-20",
-    officialLink: "https://www.educanada.ca/",
-    summary: "Bourse de mobilité internationale complète pour étudiants africains brillants en technologies de pointe.",
-    description: "Financement intégral dédié aux étudiants à fort potentiel souhaitant poursuivre une maîtrise de recherche axée sur l'application de l'IA et de la cybersécurité aux défis d'infrastructure mondiaux.",
-    eligibility: [
-      "Être titulaire d'une Licence ou Bac+3 en Informatique, Mathématiques Appliquées ou Génie Logiciel",
-      "Moyenne académique supérieure à 14/20 ou équivalent",
-      "Projet d'études orienté vers les solutions technologiques durables",
-    ],
-    documents: [
-      "Relevés de notes universitaires complets",
-      "Lettre d'intérêt académique et professionnel",
-      "Deux recommandations de professeurs d'université",
-      "Preuve de compétences techniques ou portfolio de projets informatiques",
-    ],
-    benefits: [
-      "Exemption totale des droits de scolarité internationaux",
-      "Bourse de subsistance mensuelle pour toute la durée des études",
-      "Billet d'avion aller-retour pris en charge",
-      "Assurance médicale complète pour étudiants internationaux",
-    ],
-    procedure: [
-      "Consulter les programmes d'études éligibles sur la plateforme EduCanada",
-      "Déposer sa demande d'admission auprès de l'établissement d'accueil",
-      "Remplir le dossier de demande de bourse rattaché",
-      "Suivi des résultats d'attribution via le consulat",
-    ],
+    id: "singapore-a-star-undergraduate-2026",
+    slug: "bourse-singapour-a-star-sciences-ingenierie-2026",
+    titleFr: "Bourse Internationale A*STAR Singapour - Sciences & Ingénierie",
+    titleEn: "Singapore A*STAR Undergraduate Science & Tech Scholarship 2026-2027",
+    titleAr: "منحة سنغافورة الدولية A*STAR للعلوم والتكنولوجيا 2026-2027",
+    category: "SCHOLARSHIP",
+    degreeLevel: "UNDERGRADUATE",
+    country: "Singapour",
+    hostInstitution: "NUS (National University of Singapore) et NTU Singapour",
+    deadline: "2026-11-15",
+    coverageFr: "Prise en charge intégrale des frais de scolarité à NUS/NTU, indemnité d'installation, allocation mensuelle et billets d'avion.",
+    coverageEn: "Full tuition fees at NUS/NTU, settling-in allowance, monthly stipend, and airfare support.",
+    coverageAr: "تغطية كاملة للمصاريف في جامعتي NUS و NTU، بدل استقرار، راتب شهري ودعم تذاكر الطيران.",
+    descriptionFr: "Financement d'élite dédié aux filières scientifiques, mathématiques, cybersécurité, intelligence artificielle et ingénierie de pointe.",
+    descriptionEn: "Elite STEM scholarship supporting top students in computing, artificial intelligence, biotechnology, and advanced engineering.",
+    descriptionAr: "تمويل نخبوي للطلاب المتميزين في مجالات الذكاء الاصطناعي، الأمن السيبراني والهندسة المتقدمة.",
+    officialUrl: "https://www.a-star.edu.sg/Scholarships/",
+    isFeatured: false,
+  },
+  {
+    id: "mastercard-foundation-bachelor-2026",
+    slug: "bourses-mastercard-foundation-licence-afrique-2026",
+    titleFr: "Bourses Mastercard Foundation - Premier Cycle & Leadership",
+    titleEn: "Mastercard Foundation Scholars Program (Undergraduate) 2026-2027",
+    titleAr: "منح مؤسسة ماستركارد لدرجة البكالوريوس والقيادة 2026-2027",
+    category: "SCHOLARSHIP",
+    degreeLevel: "UNDERGRADUATE",
+    country: "International (Afrique, Europe, Amérique du Nord)",
+    hostInstitution: "Réseau d'universités partenaires (UCT, KNUST, Ashesi, McGill, Sciences Po)",
+    deadline: "2026-12-01",
+    coverageFr: "Frais académiques complets, logement, livres, ordinateur portable, transport, soutien psychosocial et mentorat de leadership.",
+    coverageEn: "Comprehensive financial support: tuition, living costs, books, laptop, transport, and transformative leadership coaching.",
+    coverageAr: "دعم مالي كامل: الرسوم الدراسية، تكاليف المعيشة، الكتب، حاسوب محمول وتدريب قيادي.",
+    descriptionFr: "Accompagne les jeunes africains talentueux issus de milieux modestes engagés dans le développement et la transformation de leurs communautés.",
+    descriptionEn: "Empowering bright young African leaders from economically disadvantaged backgrounds committed to community transformation.",
+    descriptionAr: "برنامج موجه للشباب الأفارقة المتميزين من ذوي الدخل المحدود والملتزمين بإحداث أثر إيجابي في مجتمعاتهم.",
+    officialUrl: "https://mastercardfdn.org/all/scholars/",
+    isFeatured: true,
   },
 ];
-
-export function calculateDaysLeft(deadlineStr: string): number {
-  const deadline = new Date(deadlineStr);
-  const now = new Date();
-  const diffTime = deadline.getTime() - now.getTime();
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  return diffDays > 0 ? diffDays : 0;
-}
