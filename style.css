@@ -1,0 +1,386 @@
+/* Palette officielle extraite du logo AVA */
+:root {
+  --ava-green-dark: #1b6348;
+  --ava-teal: #1cb59b;
+  --ava-orange: #f59e0b;
+  --ava-red: #e11d48;
+  --ava-brown: #5c301c;
+  --bg-light: #f8fafc;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--white);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Topbar */
+.topbar {
+  background-color: var(--ava-green-dark);
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  padding: 8px 0;
+}
+
+.topbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.topbar-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.topbar-links a:hover {
+  color: var(--white);
+}
+
+/* Navbar */
+.navbar {
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+}
+
+.logo {
+  height: 52px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--ava-green-dark);
+}
+
+.brand-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--ava-teal);
+}
+
+.btn-join {
+  background-color: var(--ava-teal);
+  color: var(--white) !important;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn-join:hover {
+  background-color: #15947e;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, rgba(27,99,72,0.95), rgba(28,181,155,0.9)), url('images/logo.png.jpeg') center/cover no-repeat;
+  color: var(--white);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.badge-hero {
+  display: inline-block;
+  background-color: var(--ava-orange);
+  color: var(--white);
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 2.3rem;
+  max-width: 850px;
+  margin: 0 auto 20px auto;
+  line-height: 1.25;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  opacity: 0.92;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary {
+  background-color: var(--ava-orange);
+  color: var(--white);
+  padding: 12px 26px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 10px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Sections */
+.section {
+  padding: 70px 0;
+}
+
+.bg-light {
+  background-color: var(--bg-light);
+}
+
+.section-title-wrap {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title-wrap h2 {
+  font-size: 1.9rem;
+  color: var(--ava-green-dark);
+}
+
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background-color: var(--ava-teal);
+  margin: 10px auto 12px auto;
+  border-radius: 2px;
+}
+
+.section-title-wrap p {
+  color: var(--text-muted);
+}
+
+/* Cards (Bourses) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-badge {
+  color: var(--white);
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.bg-teal { background-color: var(--ava-teal); }
+.bg-orange { background-color: var(--ava-orange); }
+.bg-red { background-color: var(--ava-red); }
+
+.card-body {
+  padding: 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.card-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--ava-green-dark);
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.card-link {
+  color: var(--ava-teal);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Staff Grid */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.staff-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-top: 4px solid var(--ava-teal);
+}
+
+.staff-img-box {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 15px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--ava-orange);
+}
+
+.staff-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.staff-card h4 {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.staff-role {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--ava-green-dark);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.staff-country {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.footer {
+  background-color: #0f2d21;
+  color: #cbd5e1;
+  padding-top: 50px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-col h3, .footer-col h4 {
+  color: var(--white);
+  margin-bottom: 15px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+  color: var(--ava-teal);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+}
